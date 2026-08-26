@@ -104,7 +104,7 @@ export default function ContactPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
-              className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition-transform hover:scale-110 hover:bg-ink-hover sm:h-16 sm:w-16"
+              className="floaty flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition-transform hover:scale-110 hover:bg-ink-hover sm:h-16 sm:w-16"
             >
               <ArrowIcon className="h-5 w-5 sm:h-6 sm:w-6" />
             </a>
@@ -119,6 +119,7 @@ export default function ContactPage() {
                 tone={tone}
                 rotate={rotate}
                 delay={index * 90}
+                floatOffset={index}
               >
                 <Icon className="h-5 w-5 shrink-0" />
                 <span className="text-left">

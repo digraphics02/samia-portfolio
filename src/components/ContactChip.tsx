@@ -16,6 +16,7 @@ export default function ContactChip({
   rotate,
   tone = "light",
   delay = 0,
+  floatOffset = 0,
   children,
 }: {
   href: string;
@@ -23,6 +24,7 @@ export default function ContactChip({
   rotate: number;
   tone?: Tone;
   delay?: number;
+  floatOffset?: number;
   children: ReactNode;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -53,6 +55,8 @@ export default function ContactChip({
       style={
         {
           "--rotate": `${rotate}deg`,
+          "--float-duration": `${3 + (floatOffset % 3) * 0.5}s`,
+          "--float-delay": `${floatOffset * 0.25}s`,
           transitionDelay: visible ? `${delay}ms` : "0ms",
         } as CSSProperties
       }
