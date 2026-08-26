@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: { project: PortfolioProject }) 
   return (
     <Link
       href={`/portfolio/${project.slug}/`}
-      className="group block overflow-hidden rounded-lg border border-line bg-paper transition-colors hover:border-accent"
+      className="group block overflow-hidden rounded-lg border border-line bg-paper transition-colors hover:border-ink"
     >
       {cover && (
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">

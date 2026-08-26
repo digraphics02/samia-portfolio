@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Reveal from "@/components/Reveal";
 import { BehanceIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 const url = `${siteConfig.url}contact/`;
@@ -66,7 +67,7 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
-          <div className="relative overflow-hidden rounded-2xl border border-line bg-surface px-8 py-10 sm:px-10 sm:py-12">
+          <Reveal className="relative overflow-hidden rounded-2xl border border-line bg-surface px-8 py-10 sm:px-10 sm:py-12">
             <MailIcon className="pointer-events-none absolute -right-8 -top-8 h-48 w-48 text-line" />
 
             <div className="relative">
@@ -86,28 +87,30 @@ export default function ContactPage() {
                 in {siteConfig.location}.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           <ul className="grid gap-4 sm:grid-cols-2">
             {methods.map(({ label, value, href, Icon, external }, index) => (
               <li key={label} className={index === methods.length - 1 ? "sm:col-span-2" : undefined}>
-                <a
-                  href={href}
-                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="group flex flex-col items-center gap-3 rounded-xl border border-line bg-paper p-5 text-center transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-xs font-medium uppercase tracking-wide text-muted">
-                      {label}
+                <Reveal delay={Math.min(index * 80, 320)}>
+                  <a
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="group flex flex-col items-center gap-3 rounded-xl border border-line bg-paper p-5 text-center transition-all hover:-translate-y-0.5 hover:border-ink hover:shadow-md"
+                  >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+                      <Icon className="h-5 w-5" />
                     </span>
-                    <span className="mt-0.5 block break-all text-sm font-semibold text-ink sm:text-base">
-                      {value}
+                    <span className="min-w-0">
+                      <span className="block text-xs font-medium uppercase tracking-wide text-muted">
+                        {label}
+                      </span>
+                      <span className="mt-0.5 block break-all text-sm font-semibold text-ink sm:text-base">
+                        {value}
+                      </span>
                     </span>
-                  </span>
-                </a>
+                  </a>
+                </Reveal>
               </li>
             ))}
           </ul>
