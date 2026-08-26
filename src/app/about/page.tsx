@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { education, experience, expertise, extraCurricular, skills } from "@/lib/content";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -84,7 +85,12 @@ export default function AboutPage() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-5xl px-6 py-12">
           <Reveal>
-            <h2 className="text-2xl font-semibold text-ink">Expertise</h2>
+            <div className="flex items-baseline justify-between">
+              <h2 className="text-2xl font-semibold text-ink">Expertise</h2>
+              <Link href="/services/" className="text-sm font-medium text-body hover:text-ink">
+                View all services
+              </Link>
+            </div>
           </Reveal>
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
             {expertise.map((item, index) => (

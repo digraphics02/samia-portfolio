@@ -87,6 +87,35 @@ export const expertise = [
   "AI-Powered Design Tools (image generation, automated layouts)",
 ] as const;
 
+export type ServiceCategory = {
+  name: string;
+  items: string[];
+};
+
+// Grouped from the same resume-sourced expertise list above.
+export const serviceCategories: ServiceCategory[] = [
+  {
+    name: "Branding & Packaging",
+    items: ["Logo Design", "Packaging and Product Design"],
+  },
+  {
+    name: "Print & Signage",
+    items: ["Menu Design", "Signage Design", "Print & Digital Media Design"],
+  },
+  {
+    name: "Social & Marketing",
+    items: ["Social Media Graphics", "Social Media Campaigns", "Marketing Alignment"],
+  },
+  {
+    name: "Photo & Image Editing",
+    items: ["Image Editing and Retouching", "Photo Editing & Retouching"],
+  },
+  {
+    name: "AI-Powered Design",
+    items: ["AI-Powered Design Tools (image generation, automated layouts)"],
+  },
+];
+
 export const extraCurricular = [
   "Graphic Design Workshops",
   "Community Projects",

@@ -26,6 +26,7 @@ export const indexable = process.env.VERCEL_ENV === "production";
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
+  { href: "/services/", label: "Services" },
   { href: "/portfolio/", label: "Portfolio" },
   { href: "/contact/", label: "Contact" },
 ] as const;
