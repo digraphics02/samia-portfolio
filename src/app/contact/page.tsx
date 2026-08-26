@@ -92,8 +92,7 @@ export default function ContactPage() {
             <span className="text-accent">Let&apos;s talk.</span>
           </h1>
           <p className="mt-4 max-w-xl text-lg text-body">
-            Available for freelance graphic design work in branding, packaging, and print. Based in{" "}
-            {siteConfig.location}.
+            Available for freelance graphic design work in branding, packaging, and print.
           </p>
         </Reveal>
 
