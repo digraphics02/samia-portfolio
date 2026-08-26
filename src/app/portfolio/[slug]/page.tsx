@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 import { portfolioProjects } from "@/lib/content";
@@ -64,18 +65,38 @@ export default async function PortfolioProjectPage({
       />
 
       <section className="mx-auto max-w-3xl px-6 py-12">
-        <p className="text-sm font-medium uppercase tracking-wide text-neutral-500">{project.category}</p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight text-neutral-900">{project.title}</h1>
+        <p className="text-sm font-medium uppercase tracking-wide text-muted">{project.category}</p>
+        <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink">{project.title}</h1>
 
         <a
           href={project.behanceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex min-h-11 items-center rounded-md bg-neutral-900 px-6 text-sm font-semibold text-white hover:bg-neutral-700"
+          className="mt-8 inline-flex min-h-11 items-center rounded-md bg-accent px-6 text-sm font-semibold text-paper hover:bg-accent-dark"
         >
           View full case study on Behance
         </a>
       </section>
+
+      {project.images.length > 0 && (
+        <section className="mx-auto max-w-3xl px-6 pb-16">
+          <div className="space-y-6">
+            {project.images.map((image, index) => (
+              <div key={image.src} className="overflow-hidden rounded-lg border border-line bg-surface">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  sizes="(min-width: 768px) 768px, 100vw"
+                  priority={index === 0}
+                  className="h-auto w-full"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }

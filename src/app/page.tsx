@@ -40,44 +40,44 @@ export default function Home() {
       />
 
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <p className="text-sm font-medium uppercase tracking-wide text-neutral-500">{siteConfig.location}</p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+        <p className="text-sm font-medium uppercase tracking-wide text-muted">{siteConfig.location}</p>
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           {siteConfig.name}
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+        <p className="mt-4 max-w-2xl text-lg text-body">
           Graphic Designer &amp; Print Specialist specializing in branding, food packaging, and print
           design with expertise in layout, typography, and production-ready artwork.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="/portfolio/"
-            className="inline-flex min-h-11 items-center rounded-md bg-neutral-900 px-6 text-sm font-semibold text-white hover:bg-neutral-700"
+            className="inline-flex min-h-11 items-center rounded-md bg-accent px-6 text-sm font-semibold text-paper hover:bg-accent-dark"
           >
             View Portfolio
           </Link>
           <Link
             href="/contact/"
-            className="inline-flex min-h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-900 hover:border-neutral-500"
+            className="inline-flex min-h-11 items-center rounded-md border border-line px-6 text-sm font-semibold text-ink hover:border-accent"
           >
             Contact
           </Link>
         </div>
       </section>
 
-      <section className="border-t border-neutral-200 bg-neutral-50">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-semibold text-neutral-900">Expertise</h2>
+          <h2 className="text-2xl font-semibold text-ink">Expertise</h2>
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
             {expertise.map((item) => (
               <li
                 key={item}
-                className="rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-700"
+                className="rounded-md border border-line bg-paper px-4 py-3 text-sm text-body"
               >
                 {item}
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm text-neutral-500">
+          <p className="mt-6 text-sm text-muted">
             Tools: {skills.join(", ")}
           </p>
         </div>
@@ -85,8 +85,8 @@ export default function Home() {
 
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-2xl font-semibold text-neutral-900">Featured Work</h2>
-          <Link href="/portfolio/" className="text-sm font-medium text-neutral-700 hover:text-neutral-900">
+          <h2 className="text-2xl font-semibold text-ink">Featured Work</h2>
+          <Link href="/portfolio/" className="text-sm font-medium text-body hover:text-ink">
             View all portfolio work
           </Link>
         </div>
@@ -97,22 +97,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-neutral-200 bg-neutral-50">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center">
-          <h2 className="text-2xl font-semibold text-neutral-900">Let&apos;s work together</h2>
-          <p className="mt-2 text-neutral-700">
+          <h2 className="text-2xl font-semibold text-ink">Let&apos;s work together</h2>
+          <p className="mt-2 text-body">
             Available for freelance graphic design work in branding, packaging, and print.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a
               href={siteConfig.phoneHref}
-              className="inline-flex min-h-11 items-center rounded-md bg-neutral-900 px-6 text-sm font-semibold text-white hover:bg-neutral-700"
+              className="inline-flex min-h-11 items-center rounded-md bg-accent px-6 text-sm font-semibold text-paper hover:bg-accent-dark"
             >
               {siteConfig.phone}
             </a>
             <Link
               href="/contact/"
-              className="inline-flex min-h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-900 hover:border-neutral-500"
+              className="inline-flex min-h-11 items-center rounded-md border border-line px-6 text-sm font-semibold text-ink hover:border-accent"
             >
               Get in touch
             </Link>

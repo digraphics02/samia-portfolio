@@ -13,6 +13,7 @@ export const siteConfig = {
   email: "Samiarafiq.21@gmail.com",
   phone: "+92-3109435687",
   phoneHref: "tel:+923109435687",
+  whatsappHref: "https://wa.me/923109435687",
   social: {
     behance: "https://www.behance.net/samiarafiq",
     linkedin: "https://www.linkedin.com/in/samia-rafique",

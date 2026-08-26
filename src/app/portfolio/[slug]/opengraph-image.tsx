@@ -23,11 +23,11 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#171717",
-          color: "#ffffff",
+          background: "#211c16",
+          color: "#fbf7f2",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 4, textTransform: "uppercase", opacity: 0.7 }}>
+        <div style={{ fontSize: 28, letterSpacing: 4, textTransform: "uppercase", color: "#c1622f" }}>
           {project?.category ?? siteConfig.tagline}
         </div>
         <div style={{ fontSize: 68, fontWeight: 700, marginTop: 24 }}>{project?.title ?? siteConfig.name}</div>

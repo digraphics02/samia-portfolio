@@ -4,9 +4,9 @@ import MobileNavToggle from "@/components/MobileNavToggle";
 
 export default function Header() {
   return (
-    <header className="relative border-b border-neutral-200 bg-white">
+    <header className="relative border-b border-line bg-paper">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight text-neutral-900">
+        <Link href="/" className="text-lg font-semibold tracking-tight text-ink">
           {siteConfig.name}
         </Link>
         <nav aria-label="Primary" className="hidden sm:block">
@@ -15,7 +15,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900"
+                  className="text-sm font-medium text-body transition-colors hover:text-ink"
                 >
                   {link.label}
                 </Link>

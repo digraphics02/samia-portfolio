@@ -14,7 +14,7 @@ export default function MobileNavToggle() {
         aria-expanded={open}
         aria-controls="mobile-nav"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-neutral-900"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-ink"
       >
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -26,14 +26,14 @@ export default function MobileNavToggle() {
         </svg>
       </button>
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="absolute inset-x-0 top-full border-b border-neutral-200 bg-white px-6 py-4">
+        <nav id="mobile-nav" aria-label="Mobile" className="absolute inset-x-0 top-full border-b border-line bg-paper px-6 py-4">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block min-h-11 py-2 text-base font-medium text-neutral-900"
+                  className="block min-h-11 py-2 text-base font-medium text-ink"
                 >
                   {link.label}
                 </Link>

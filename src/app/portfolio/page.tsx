@@ -28,8 +28,8 @@ export default function PortfolioPage() {
       <Breadcrumbs items={[{ name: "Home", url: siteConfig.url }, { name: "Portfolio", url }]} />
 
       <section className="mx-auto max-w-5xl px-6 py-12">
-        <h1 className="text-4xl font-bold tracking-tight text-neutral-900">Portfolio</h1>
-        <p className="mt-4 max-w-2xl text-lg text-neutral-700">
+        <h1 className="text-4xl font-bold tracking-tight text-ink">Portfolio</h1>
+        <p className="mt-4 max-w-2xl text-lg text-body">
           Selected branding, logo design, and visual identity projects.
         </p>
 
