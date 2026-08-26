@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Reveal from "@/components/Reveal";
-import { BehanceIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
+import ContactChip from "@/components/ContactChip";
+import { ArrowIcon, BehanceIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 const url = `${siteConfig.url}contact/`;
 
@@ -22,13 +23,15 @@ export const metadata: Metadata = {
   },
 };
 
-const methods = [
+const chips = [
   {
-    label: "Phone",
+    label: "Call",
     value: siteConfig.phone,
     href: siteConfig.phoneHref,
     Icon: PhoneIcon,
     external: false,
+    tone: "dark",
+    rotate: -6,
   },
   {
     label: "WhatsApp",
@@ -36,6 +39,8 @@ const methods = [
     href: siteConfig.whatsappHref,
     Icon: WhatsAppIcon,
     external: true,
+    tone: "accent",
+    rotate: 4,
   },
   {
     label: "Email",
@@ -43,6 +48,8 @@ const methods = [
     href: `mailto:${siteConfig.email}`,
     Icon: MailIcon,
     external: false,
+    tone: "light",
+    rotate: -3,
   },
   {
     label: "Behance",
@@ -50,6 +57,8 @@ const methods = [
     href: siteConfig.social.behance,
     Icon: BehanceIcon,
     external: true,
+    tone: "dark",
+    rotate: 5,
   },
   {
     label: "LinkedIn",
@@ -57,6 +66,8 @@ const methods = [
     href: siteConfig.social.linkedin,
     Icon: LinkedInIcon,
     external: true,
+    tone: "light",
+    rotate: -4,
   },
 ] as const;
 
@@ -66,54 +77,59 @@ export default function ContactPage() {
       <Breadcrumbs items={[{ name: "Home", url: siteConfig.url }, { name: "Contact", url }]} />
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
-          <Reveal className="relative overflow-hidden rounded-2xl border border-line bg-surface px-8 py-10 sm:px-10 sm:py-12">
-            <MailIcon className="pointer-events-none absolute -right-8 -top-8 h-48 w-48 text-line" />
+        <Reveal>
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium uppercase tracking-wide text-body">
+            <span className="relative flex h-2 w-2">
+              <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            Available for Freelance
+          </span>
 
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium uppercase tracking-wide text-body">
-                <span className="relative flex h-2 w-2">
-                  <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                Available for Freelance
-              </span>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-ink sm:text-6xl">
+            Got a project in mind?
+            <br className="hidden sm:block" />
+            <span className="text-accent">Let&apos;s talk.</span>
+          </h1>
+          <p className="mt-4 max-w-xl text-lg text-body">
+            Available for freelance graphic design work in branding, packaging, and print. Based in{" "}
+            {siteConfig.location}.
+          </p>
+        </Reveal>
 
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-                Let&apos;s talk.
-              </h1>
-              <p className="mt-4 max-w-sm text-lg text-body">
-                Available for freelance graphic design work in branding, packaging, and print. Based
-                in {siteConfig.location}.
-              </p>
-            </div>
+        <div className="relative mt-12 overflow-hidden rounded-3xl bg-surface px-6 py-16 sm:px-12 sm:py-20">
+          <Reveal delay={420} className="absolute right-6 top-6 sm:right-10 sm:top-10">
+            <a
+              href={siteConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp"
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition-transform hover:scale-110 hover:bg-ink-hover sm:h-16 sm:w-16"
+            >
+              <ArrowIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+            </a>
           </Reveal>
 
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {methods.map(({ label, value, href, Icon, external }, index) => (
-              <li key={label} className={index === methods.length - 1 ? "sm:col-span-2" : undefined}>
-                <Reveal delay={Math.min(index * 80, 320)}>
-                  <a
-                    href={href}
-                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group flex flex-col items-center gap-3 rounded-xl border border-line bg-paper p-5 text-center transition-all hover:-translate-y-0.5 hover:border-ink hover:shadow-md"
-                  >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-xs font-medium uppercase tracking-wide text-muted">
-                        {label}
-                      </span>
-                      <span className="mt-0.5 block break-all text-sm font-semibold text-ink sm:text-base">
-                        {value}
-                      </span>
-                    </span>
-                  </a>
-                </Reveal>
-              </li>
+          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-6">
+            {chips.map(({ label, value, href, Icon, external, tone, rotate }, index) => (
+              <ContactChip
+                key={label}
+                href={href}
+                external={external}
+                tone={tone}
+                rotate={rotate}
+                delay={index * 90}
+              >
+                <Icon className="h-5 w-5 shrink-0" />
+                <span className="text-left">
+                  <span className="block text-[11px] font-medium uppercase tracking-wide opacity-70">
+                    {label}
+                  </span>
+                  <span className="block text-sm font-bold sm:text-base">{value}</span>
+                </span>
+              </ContactChip>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
     </>

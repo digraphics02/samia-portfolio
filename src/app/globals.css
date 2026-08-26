@@ -49,3 +49,39 @@ body {
     transition: none;
   }
 }
+
+.chip {
+  --rotate: 0deg;
+  transform: rotate(var(--rotate));
+  transition: transform 0.4s ease, opacity 0.6s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.chip[data-in="false"] {
+  opacity: 0;
+  transform: rotate(calc(var(--rotate) * 2.4)) translateY(1rem) scale(0.92);
+}
+
+.chip[data-in="true"] {
+  opacity: 1;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  transform: rotate(0deg) scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+
+  .chip[data-in="false"] {
+    opacity: 1;
+    transform: rotate(var(--rotate));
+  }
+
+  .chip:hover,
+  .chip:focus-visible {
+    transform: rotate(var(--rotate));
+  }
+}
