@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import SocialLinks from "@/components/SocialLinks";
 import { BehanceIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 const url = `${siteConfig.url}contact/`;
@@ -86,8 +85,6 @@ export default function ContactPage() {
                 Available for freelance graphic design work in branding, packaging, and print. Based
                 in {siteConfig.location}.
               </p>
-
-              <SocialLinks className="mt-8" />
             </div>
           </div>
 
@@ -97,7 +94,7 @@ export default function ContactPage() {
                 <a
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="group flex items-center gap-4 rounded-xl border border-line bg-paper p-5 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
+                  className="group flex flex-col items-center gap-3 rounded-xl border border-line bg-paper p-5 text-center transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
                     <Icon className="h-5 w-5" />
