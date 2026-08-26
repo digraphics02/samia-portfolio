@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SocialLinks from "@/components/SocialLinks";
+import { BehanceIcon, LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 const url = `${siteConfig.url}contact/`;
 
@@ -21,80 +22,99 @@ export const metadata: Metadata = {
   },
 };
 
+const methods = [
+  {
+    label: "Phone",
+    value: siteConfig.phone,
+    href: siteConfig.phoneHref,
+    Icon: PhoneIcon,
+    external: false,
+  },
+  {
+    label: "WhatsApp",
+    value: siteConfig.phone,
+    href: siteConfig.whatsappHref,
+    Icon: WhatsAppIcon,
+    external: true,
+  },
+  {
+    label: "Email",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+    Icon: MailIcon,
+    external: false,
+  },
+  {
+    label: "Behance",
+    value: "behance.net/samiarafiq",
+    href: siteConfig.social.behance,
+    Icon: BehanceIcon,
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/samia-rafique",
+    href: siteConfig.social.linkedin,
+    Icon: LinkedInIcon,
+    external: true,
+  },
+] as const;
+
 export default function ContactPage() {
   return (
     <>
       <Breadcrumbs items={[{ name: "Home", url: siteConfig.url }, { name: "Contact", url }]} />
 
-      <section className="mx-auto max-w-3xl px-6 py-12">
-        <h1 className="text-4xl font-bold tracking-tight text-ink">Contact</h1>
-        <p className="mt-4 text-lg text-body">
-          Available for freelance graphic design work in branding, packaging, and print. Based in{" "}
-          {siteConfig.location}.
-        </p>
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
+          <div className="relative overflow-hidden rounded-2xl border border-line bg-surface px-8 py-10 sm:px-10 sm:py-12">
+            <MailIcon className="pointer-events-none absolute -right-8 -top-8 h-48 w-48 text-line" />
 
-        <SocialLinks className="mt-6" />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium uppercase tracking-wide text-body">
+                <span className="relative flex h-2 w-2">
+                  <span className="motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                Available for Freelance
+              </span>
 
-        <dl className="mt-10 space-y-6">
-          <div>
-            <dt className="text-sm font-medium uppercase tracking-wide text-muted">Phone</dt>
-            <dd className="mt-1">
-              <a href={siteConfig.phoneHref} className="text-lg font-semibold text-ink hover:underline">
-                {siteConfig.phone}
-              </a>
-            </dd>
+              <h1 className="mt-6 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+                Let&apos;s talk.
+              </h1>
+              <p className="mt-4 max-w-sm text-lg text-body">
+                Available for freelance graphic design work in branding, packaging, and print. Based
+                in {siteConfig.location}.
+              </p>
+
+              <SocialLinks className="mt-8" />
+            </div>
           </div>
-          <div>
-            <dt className="text-sm font-medium uppercase tracking-wide text-muted">WhatsApp</dt>
-            <dd className="mt-1">
-              <a
-                href={siteConfig.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg font-semibold text-ink hover:underline"
-              >
-                {siteConfig.phone}
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="text-sm font-medium uppercase tracking-wide text-muted">Email</dt>
-            <dd className="mt-1">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="text-lg font-semibold text-ink hover:underline"
-              >
-                {siteConfig.email}
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="text-sm font-medium uppercase tracking-wide text-muted">Behance</dt>
-            <dd className="mt-1">
-              <a
-                href={siteConfig.social.behance}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg font-semibold text-ink hover:underline"
-              >
-                behance.net/samiarafiq
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="text-sm font-medium uppercase tracking-wide text-muted">LinkedIn</dt>
-            <dd className="mt-1">
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg font-semibold text-ink hover:underline"
-              >
-                linkedin.com/in/samia-rafique
-              </a>
-            </dd>
-          </div>
-        </dl>
+
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {methods.map(({ label, value, href, Icon, external }, index) => (
+              <li key={label} className={index === methods.length - 1 ? "sm:col-span-2" : undefined}>
+                <a
+                  href={href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="group flex items-center gap-4 rounded-xl border border-line bg-paper p-5 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface text-accent transition-colors group-hover:bg-accent group-hover:text-paper">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xs font-medium uppercase tracking-wide text-muted">
+                      {label}
+                    </span>
+                    <span className="mt-0.5 block break-all text-sm font-semibold text-ink sm:text-base">
+                      {value}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </>
   );
