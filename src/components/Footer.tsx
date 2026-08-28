@@ -7,8 +7,8 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:grid-cols-3">
-        <div>
+      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 px-6 py-10 sm:grid-cols-3 sm:py-12">
+        <div className="col-span-2 sm:col-span-1">
           <p className="text-base font-semibold text-ink">{siteConfig.name}</p>
           <p className="mt-1 text-sm text-muted">{siteConfig.tagline}</p>
           <p className="mt-1 text-sm text-muted">{siteConfig.location}</p>
@@ -37,33 +37,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href={siteConfig.whatsappHref} target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-ink">
-                WhatsApp
-              </a>
-            </li>
-            <li>
-              <a href={`mailto:${siteConfig.email}`} className="text-sm text-muted hover:text-ink">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="text-sm text-muted hover:text-ink break-all"
+              >
                 {siteConfig.email}
-              </a>
-            </li>
-            <li>
-              <a
-                href={siteConfig.social.behance}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-ink"
-              >
-                Behance
-              </a>
-            </li>
-            <li>
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted hover:text-ink"
-              >
-                LinkedIn
               </a>
             </li>
           </ul>
