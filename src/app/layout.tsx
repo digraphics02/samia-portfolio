@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import BackgroundTools from "@/components/BackgroundTools";
 import { indexable, siteConfig } from "@/lib/site-config";
 
 const inter = Inter({
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        <BackgroundTools />
         <Header />
         <main id="main-content" className="flex-1">
           {children}
