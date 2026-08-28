@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 };
 
 const TONES = ["dark", "accent", "light"] as const;
-const ROTATIONS = [-6, 4, -3, 5, -4, 6, -5, 3];
 
 export default function ServicesPage() {
   return (
@@ -80,9 +79,7 @@ export default function ServicesPage() {
                       key={item}
                       label={item}
                       tone={TONES[itemIndex % TONES.length]}
-                      rotate={ROTATIONS[itemIndex % ROTATIONS.length]}
                       delay={itemIndex * 80}
-                      floatOffset={itemIndex}
                     />
                   ))}
                 </div>

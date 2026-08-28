@@ -13,15 +13,11 @@ const toneClasses: Record<Tone, string> = {
 export default function ServiceChip({
   label,
   tone = "light",
-  rotate = 0,
   delay = 0,
-  floatOffset = 0,
 }: {
   label: string;
   tone?: Tone;
-  rotate?: number;
   delay?: number;
-  floatOffset?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -48,9 +44,7 @@ export default function ServiceChip({
       data-in={visible}
       style={
         {
-          "--rotate": `${rotate}deg`,
-          "--float-duration": `${3 + (floatOffset % 3) * 0.5}s`,
-          "--float-delay": `${floatOffset * 0.25}s`,
+          animation: "none",
           transitionDelay: visible ? `${delay}ms` : "0ms",
         } as CSSProperties
       }
