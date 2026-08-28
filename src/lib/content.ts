@@ -85,6 +85,13 @@ export const expertise = [
   "Packaging and Product Design",
   "Photo Editing & Retouching",
   "AI-Powered Design Tools (image generation, automated layouts)",
+  "Flyer Design",
+  "Poster Design",
+  "Business Card Design",
+  "Window Vinyl Design",
+  "Food Packaging Design",
+  "Sticker Design",
+  "Label Design",
 ] as const;
 
 export type ServiceCategory = {
@@ -96,11 +103,25 @@ export type ServiceCategory = {
 export const serviceCategories: ServiceCategory[] = [
   {
     name: "Branding & Packaging",
-    items: ["Logo Design", "Packaging and Product Design"],
+    items: [
+      "Logo Design",
+      "Packaging and Product Design",
+      "Food Packaging Design",
+      "Business Card Design",
+      "Label Design",
+    ],
   },
   {
     name: "Print & Signage",
-    items: ["Menu Design", "Signage Design", "Print & Digital Media Design"],
+    items: [
+      "Menu Design",
+      "Signage Design",
+      "Print & Digital Media Design",
+      "Flyer Design",
+      "Poster Design",
+      "Window Vinyl Design",
+      "Sticker Design",
+    ],
   },
   {
     name: "Social & Marketing",
