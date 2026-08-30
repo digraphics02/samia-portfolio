@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { expertise, portfolioProjects, skills } from "@/lib/content";
+import { portfolioProjects, serviceCategories, skills } from "@/lib/content";
 import { personSchema } from "@/lib/schema";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
@@ -98,10 +98,10 @@ export default function Home() {
               </div>
 
               <div className="relative mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-                {expertise.map((item, index) => (
+                {serviceCategories.map((category, index) => (
                   <ServiceChip
-                    key={item}
-                    label={item}
+                    key={category.name}
+                    label={category.name}
                     tone={TONES[index % TONES.length]}
                     delay={index * 60}
                   />
