@@ -5,6 +5,7 @@ import { education, experience, expertise, extraCurricular, skills } from "@/lib
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Reveal from "@/components/Reveal";
 import ServiceChip from "@/components/ServiceChip";
+import ToolBadge from "@/components/ToolBadge";
 
 const url = `${siteConfig.url}about/`;
 
@@ -184,14 +185,9 @@ export default function AboutPage() {
                 Skills &amp; Tools
               </h2>
 
-              <div className="relative mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-                {skills.map((item, index) => (
-                  <ServiceChip
-                    key={item}
-                    label={item}
-                    tone={TONES[index % TONES.length]}
-                    delay={index * 60}
-                  />
+              <div className="relative mt-8 flex flex-wrap items-center gap-3">
+                {skills.map((tool) => (
+                  <ToolBadge key={tool} label={tool} />
                 ))}
               </div>
             </div>

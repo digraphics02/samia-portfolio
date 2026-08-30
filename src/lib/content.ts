@@ -131,10 +131,6 @@ export const serviceCategories: ServiceCategory[] = [
     name: "Photo & Image Editing",
     items: ["Image Editing and Retouching", "Photo Editing & Retouching"],
   },
-  {
-    name: "AI-Powered Design",
-    items: ["AI-Powered Design Tools (image generation, automated layouts)"],
-  },
 ];
 
 export const extraCurricular = [

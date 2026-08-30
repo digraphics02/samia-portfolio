@@ -6,6 +6,7 @@ import { personSchema } from "@/lib/schema";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import ServiceChip from "@/components/ServiceChip";
+import ToolBadge from "@/components/ToolBadge";
 import { ArrowIcon } from "@/components/icons";
 
 // Provisional title/description assembled from the resume and Behance
@@ -108,7 +109,14 @@ export default function Home() {
                 ))}
               </div>
 
-              <p className="relative mt-8 text-sm text-muted">Tools: {skills.join(", ")}</p>
+              <div className="relative mt-8 border-t border-line pt-8">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted">Tools</p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {skills.map((tool) => (
+                    <ToolBadge key={tool} label={tool} />
+                  ))}
+                </div>
+              </div>
             </div>
           </Reveal>
 

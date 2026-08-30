@@ -65,3 +65,45 @@ export function LinkedInIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function AdobeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <rect width="24" height="24" rx="5" fill="#DA1F26" />
+      <text x="12" y="16.5" textAnchor="middle" fontSize="10" fontWeight="700" fontStyle="italic" fill="#fff">
+        Cc
+      </text>
+    </svg>
+  );
+}
+
+export function AiSparkleIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+      <rect width="24" height="24" rx="5" fill="#7C3AED" />
+      <path d="M12 5.5 13.4 10l4.6 1.4-4.6 1.4L12 17.3l-1.4-4.5L6 11.4l4.6-1.4L12 5.5Z" fill="#fff" />
+    </svg>
+  );
+}
+
+export function CanvaIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+      <rect width="24" height="24" rx="12" fill="#00C4CC" />
+      <circle cx="12" cy="12" r="5" fill="none" stroke="#fff" strokeWidth="1.6" />
+      <circle cx="14.5" cy="12" r="2.1" fill="#00C4CC" />
+    </svg>
+  );
+}
+
+export function MicrosoftOfficeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <rect width="24" height="24" rx="5" fill="#F3F3F3" />
+      <rect x="4" y="4" width="7" height="7" fill="#EE3E23" />
+      <rect x="13" y="4" width="7" height="7" fill="#4CAF50" />
+      <rect x="4" y="13" width="7" height="7" fill="#2F9BDA" />
+      <rect x="13" y="13" width="7" height="7" fill="#FFC107" />
+    </svg>
+  );
+}
